@@ -22,11 +22,12 @@
         <controls:Panorama Title="Goe Leven">
              
             <!--Panorama item one-->
-            <controls:PanoramaItem Header="Activity">
+            <controls:PanoramaItem Header="activity">
                 <!--Double line list with text wrapping-->
                 <ListBox Margin="0,0,0,0" ItemsSource="{Binding Items}">
                     <ListBox.ItemTemplate>                        
-                        <DataTemplate>                            
+                        <DataTemplate>
+                            <Grid Tap="questionGrid_Tap">
                                 <StackPanel  Margin="20,0,0,20" Width="380" Height="Auto">
                                     
                                     <Grid>
@@ -47,9 +48,10 @@
                                 
                                      <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Style="{StaticResource TextBlockWallMessageStyle}" />
 
-                                <TextBlock Text="{Binding  NumberOfComments}" TextWrapping="Wrap" Style="{StaticResource TextBlockWallNumberOfCommentsStyle}" />
+                                    <TextBlock Text="{Binding  NumberOfComments}" TextWrapping="Wrap" Style="{StaticResource TextBlockWallNumberOfCommentsStyle}" />
 
-                            </StackPanel>                            
+                                </StackPanel> 
+                            </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -57,7 +59,7 @@
  
             <!--Panorama item two-->
             <!--Use 'Orientation="Horizontal"' to enable a panel that lays out horizontally-->
-            <controls:PanoramaItem Header="Get Organized" Orientation="Horizontal">
+            <controls:PanoramaItem Header="get organized" Orientation="Horizontal">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -97,7 +99,7 @@
                 </Grid>
             </controls:PanoramaItem>
         
-            <controls:PanoramaItem Header="Contexts" Orientation="Horizontal">
+            <controls:PanoramaItem Header="contexts" Orientation="Horizontal">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -152,7 +154,7 @@
                 </Grid>
             </controls:PanoramaItem>
 
-            <controls:PanoramaItem Header="Marketplace" Orientation="Horizontal">
+            <controls:PanoramaItem Header="marketplace" Orientation="Horizontal">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -166,8 +168,8 @@
                     </Grid.ColumnDefinitions>
 
                     <Viewbox Grid.Row="0" Grid.Column="0" Margin="5" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-                        <Grid Name="backgroundGrid" Width="173" Height="173" Visibility="Visible">
-                            <Rectangle Fill="#FFFFA500" Name="Rect" Visibility="Visible" />
+                        <Grid Name="marketplaceGrid" Width="173" Height="173" Visibility="Visible">
+                            <Rectangle Fill="#FFFFA500" Name="marketplaceRect" Visibility="Visible" />
                             <Path Data="M-1774.34,-2138.97L-1785.18,-2138.97C-1785.18,-2148.93 -1793.26,-2157.01 -1803.22,-2157.01 -1813.19,-2157.01 -1821.26,-2148.93 -1821.26,-2138.97L-1832.11,-2138.97 -1829.64,-2111.82 -1831.16,-2094.34 -1775.28,-2094.34 -1776.24,-2111.82 -1774.34,-2138.97z M-1817.91,-2139.33C-1817.91,-2147.44 -1811.33,-2154.01 -1803.22,-2154.01 -1795.11,-2154.01 -1788.53,-2147.44 -1788.53,-2139.33L-1817.91,-2139.33z" Stretch="Uniform" Fill="#FFFFFFFF" Width="93" Height="93" Margin="0,0,0,20" />
                             <TextBlock Text="Marketplace" Margin="20,130,0,0" Style="{StaticResource TextBlockButtonStyle}" />
                         </Grid>
@@ -181,14 +183,14 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar x:Name="MainPageApplicationBar">
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="Add Inbox Item" />
-                <shell:ApplicationBarMenuItem Text="Add Action" />
+                <shell:ApplicationBarMenuItem x:Name="addInboxItemMenuItem" Text="add inbox item" Click="addInboxItemMenuItem_Click" />
+                <shell:ApplicationBarMenuItem x:Name="addActionMenuItem" Text="add action" Click="addActionMenuItem_Click" />
             </shell:ApplicationBar.MenuItems>
             <shell:ApplicationBar.Buttons>
-                <shell:ApplicationBarIconButton IconUri="/Resources/appbar.new.rest.png" Text="Add" />
-                <shell:ApplicationBarIconButton IconUri="/Resources/appbar.questionmark.rest.png" Text="Question" />
-                <shell:ApplicationBarIconButton IconUri="/Resources/appbar.location.rest.png" Text="Current" />
-                <shell:ApplicationBarIconButton IconUri="/Resources/appbar.feature.settings.rest.png" Text="Settings" />
+                <shell:ApplicationBarIconButton x:Name="addInboxItem" IconUri="/Resources/appbar.new.rest.png" Text="add" Click="addInboxItem_Click" />
+                <shell:ApplicationBarIconButton x:Name="askQuestion" IconUri="/Resources/appbar.questionmark.rest.png" Text="question" Click="askQuestion_Click" />
+                <shell:ApplicationBarIconButton x:Name="gotoCurrentContext" IconUri="/Resources/appbar.location.rest.png" Text="current" Click="gotoCurrentContext_Click" />
+                <shell:ApplicationBarIconButton x:Name="settings"  IconUri="/Resources/appbar.feature.settings.rest.png" Text="settings" Click="settings_Click" />
             </shell:ApplicationBar.Buttons>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

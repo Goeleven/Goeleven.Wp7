@@ -12,6 +12,19 @@
         <Setter Property="Foreground" Value="Black" />        
     </Style>
 
+    <Style TargetType="controls:Pivot">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="Orange" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="PivotTitleStyle">
+        <Setter Property="Foreground"  Value="Black" />
+    </Style>
+
+    <Style TargetType="controls:PivotItem">
+        <Setter Property="Foreground"  Value="Black" />
+    </Style>
+
     <Style TargetType="TextBlock" x:Key="TextBlockWallPosterStyle">
         <Setter Property="Foreground" Value="Black" />
         <Setter Property="FontFamily" Value="Segoe WP Bold" />
@@ -29,7 +42,10 @@
         <Setter Property="Margin" Value="60,10,20,0" />
     </Style>
 
-    
+    <Style TargetType="TextBlock" x:Key="PageTitleStyle">
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
 
     <Style TargetType="TextBlock" x:Key="TextBlockButtonStyle">
         <Setter Property="Foreground" Value="White" />
